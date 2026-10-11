@@ -1,0 +1,43 @@
+DevOps Project:
+==============
+OpenTelemetry - commerse application
+
+VM:
+
+EC2 - t2.large
+
+Installation:
+=============
+docker installation
+  - https://docs.docker.com/engine/install/ubuntu/
+  - sudo usermod -aG docker ubuntu   # grand sudo permission to docker group
+  - sudo usermod -aG docker ubuntu   # grand sudo permission to docker group
+  
+Kubernates  
+  - https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+  - kubectl version --client
+  -kubectl version
+     Client Version: v1.37.1      #client version and kubernates server versions are different
+     Kustomize Version: v5.8.1  
+	 
+Terraform:
+==========
+  - https://developer.hashicorp.com/terraform/install#linux
+  
+Project: 
+https://github.com/iam-veeramalla/ultimate-devops-project-demo.git
+  - git clone
+  - from project /
+    - docker compose up -d   
+
+
+Troubleshoot:
+=============
+  - EC2: no space left on device
+  - df -h
+  - Increase EBS volume to 30GB
+  - lsblk 
+  - sudo apt install cloud-guest-utils
+  - sudo growpart /dev/xvda 1
+  - sudo resize2fs /dev/xvda1
+  

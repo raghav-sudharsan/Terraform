@@ -1,0 +1,18 @@
+FROM golang:1.22-alpine AS builder
+# default workdir 
+WORKDIR /usr/src/app
+# copy source code and run container
+COPY . .
+#download dependencies
+RUN go mod download      
+# build go binaries from product-catalog to ./ dir
+RUN go build -o product-catalog ./
+
+#multi-stage container 
+FROM alpine AS release      
+WORKDIR /usr/src/app 
+COPY ./products/ ./products/
+COPY --from=builder /usr/src/app/product-catalog/ ./
+
+ENV PRODUCT_CATALOG_PORT 8088
+ENTRYPOINT [ "./product-catalog" ]

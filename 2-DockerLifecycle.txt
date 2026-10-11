@@ -1,0 +1,71 @@
+Docker Lifecycle:
+================
+
+Service:   #build docker on each language
+---------
+  Go     - Product Catalog service
+  Java   - Ad Service 
+  Python - Recommended
+  
+  
+Dependency: 
+ requirement.txt   - Pyhton
+ gradle,maven -pom.xml  - Java 
+ go.mod  - go 
+ 
+ 
+ 
+Go  - Product Catalog service  # build go binaries
+===============================
+ - apt install golang-go
+ - export PRODUCT_CATALOG_PORT=8088
+ - go build -o product-catalog   # create the build where destination -o #service name
+ - ./product-catalog     # to run builded binaries 
+ 
+Write Docker file:
+-----------------
+  -/product-catalog
+  - rm rf Docker file
+  - Write Dockerfile
+  - ##Refer Dockerfile ##
+  - docker build -t sudharsan/product-catalog:v1 .
+  - sudo docker run sudharsan/product-catalog:v1
+  
+----------- Completed one of life cycle of microdervice ----------
+
+
+
+
+Java: Ad service 
+=================
+
+Java build with Maven or gradle 
+ - gradle - gradlew  #dependency file 
+ 
+ - sudo apt install openjdk-21-jre-headless
+ - ./gradlew installDist
+ - chmod +x gradlew  #if not have permission 
+ - refer project repo  -java #https://github.com/iam-veeramalla/ultimate-devops-project-demo/blob/main/src/ad/README.md
+ 
+  - export AD_PORT=8080
+  - export FEATURE_FLAG_GRPC_SERVICE_ADDR=featureflagservice:50053
+  - ./build/install/opentelemetry-demo-ad/bin/Ad   #started run program from Ad executable
+  
+
+what have done :
+------------------
+* gradle demon 
+* installed dependency
+* compiled 
+* created build directory 
+   / executable and jar file   
+   
+   
+--------- service deployed and run locally ----------
+
+build with Dockerfile
+---------------------
+ - Dockerfile_java.txt 
+ - sudo docker build -t sudharsan/adservice:v1 .
+ - sudo docker run sudharsan/adservice:v1
+   
