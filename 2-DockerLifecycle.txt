@@ -69,3 +69,33 @@ build with Dockerfile
  - sudo docker build -t sudharsan/adservice:v1 .
  - sudo docker run sudharsan/adservice:v1
    
+
+
+
+
+Python - Recomendation service:
+=====================================
+ python  - requirements.txt   #the dependency file 
+ 
+ - sudo docker build -t sudharsan/recommendationservice:v1 .
+ - sudo docker run sudharsan/recommendationservice:v1
+ 
+=================================== application build done ================
+
+Easy way to write Dockerfile:
+----------------------------
+ Docker init  - only works in docker desktop
+ 
+Docker Registry:
+================
+
+docker login   # by default - dockerhub   
+  # can push over quay.io, ECR ,ACR or any container registry 
+  
+ - docker tag sudharsan/adservice:v1   sudharsansre/adservice:v1  #rename tag 
+ - docker login 
+ - docker push docker.io/sudharsansre/product-catalog:v1
+ 
+
+Docker compose :
+=================
