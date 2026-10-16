@@ -1,0 +1,31 @@
+16/10/2026: Kubernetes:
+=======================
+docker vs kubernetes:
+---------------------
+Kubernetes containers are ephimarel (short lived )
+ Problmes in docker  - Service discovery
+ 
+ 
+docker compose vs kubermetes:
+------------------------------
+d.compose  - run multiple container with configuration 
+
+
+k8s:
+=====
+solves: 
+  service discovery 
+  clustering
+  HA
+  LB
+ 
+30. Steps to onboard Kubernetes:
+================================
+  local kubernetes (minikube, k3s,kind, k3d,micro k8s)
+  multiple vm and can install k8s with kube adm   #unmanaged k8s 
+  Managed k8s  - k8s 
+    * upgrde k8s easily 
+	* control plane ( data pane )
+	* easy scale 
+	* manage load 
+	* cost

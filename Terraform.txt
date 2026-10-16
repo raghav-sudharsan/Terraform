@@ -1,0 +1,24 @@
+Section:8 Infrastructure as code using Terraform:
+
+ * Terraform vendor neutral 
+
+
+31. Useful Links - Code, Plugins and Documentation
+    Doc reference: https://github.com/raghav-sudharsan/ultimate-devops-project-aws
+
+
+Life cycle of terraform:
+==========================
+
+Terraform: 
+ Terraform init  # initialize the project. ex: to check syntax, linting error
+ Terraform plan  # Dry run. to understand written correct code 
+   - VPC
+   - eks
+
+ Terraform apply # start creat the resource with API calls 
+
+
+
+
+
