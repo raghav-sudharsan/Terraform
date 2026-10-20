@@ -75,3 +75,26 @@ Module:     # reusable code
   - EKS 
  create resource for VPS ,EKS 
 
+  VPC module:
+   
+    - main.tf     #public and private subnets  #subnets --> Routetable --> IGW ---> Network (public)
+    - output.tf 
+    - variable.tf 
+
+  EKS module:
+    - create IAM role - cluster - policy
+    - create IAM role - node - policy
+    - policy
+      
+      control plan      # Master component
+        - create IAM role cluster
+        - attach policy to IAM role
+        - create eks cluster
+
+      Data plan       # worker node 
+
+        - create IAM role node 
+        - attach policy to node IAM role
+        - creat node group and attach to eks cluster 
+
+      
