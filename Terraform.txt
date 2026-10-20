@@ -68,5 +68,10 @@ state locking:
   ==========
       EKS/Terraform/main.tf  
 
-
+39. Terraform modular approach :
+===============================
+Module:     # reusable code 
+  - VPC
+  - EKS 
+ create resource for VPS ,EKS 
 
