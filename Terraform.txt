@@ -17,8 +17,56 @@ Terraform:
    - eks
 
  Terraform apply # start creat the resource with API calls 
+ 
+ 
+AWS CLI configure:
+==================
+ install and configure 
+ aws --version
+ aws configure 
+ ls ~/.aws/     #can find credential file of access and secret key 
+ 
+ 
+ 
+State file management
+----------------------
+34. Terraform Statefile (Brain of Terraform)
 
+ state file - heart of terraform. it manages the state of terraform
+ *** state file store in local machine 
+ 
+ state management:
+    * backend (remote)
+	* state locking 
+	
+Remote backend:
+---------------
+ stores state file in s3 bucket   #s3 - backend 
+   - s3 have more features to handle this 
 
+state locking:
+--------------
+ to prevent terraform apply from different user 
+   - Dynamo DB
+   
+ * S3 ---> Remote backend 
+ * Dynamo DB ---> state locking 
+ 
+ Terraform syntax:
+ =================
+  Provider: 
+    - aws, azure 
+  resource:
+    - s3, ec2
+  variable.tf:
+    - variable for resource 
+  output.tf:
+    - 
+	
+
+  Practicles: to create s3 bucket and Dnamo DB using terraform:
+  ==========
+      EKS/Terraform/main.tf  
 
 
 
