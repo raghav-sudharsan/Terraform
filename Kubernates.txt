@@ -29,3 +29,21 @@ solves:
 	* easy scale 
 	* manage load 
 	* cost
+
+44. How to connect to 1 or many Kubernetes clusters from command line ?
+========================================================================
+
+ kubectl depends on kube config 
+
+  kube config
+    - Multiple context (cluster) 
+
+  kubectl config view           # to see list of clusters 
+  kubectl congig current-config 
+  kubectl config use-context #conext-name   # switch between context 
+
+  aws eks update-kubeconfig --region ap-south-1 --name my-eks-cluster     # to add context
+  kubectl config view
+  kubectl congig current-config
+  kubectl get nodes
+
