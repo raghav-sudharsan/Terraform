@@ -47,3 +47,64 @@ solves:
   kubectl congig current-config
   kubectl get nodes
 
+
+
+46. Kubernetes Service Account and it's importance in realtime:
+================================================================
+ kubectl get sa   #service account 
+ kubectl get sa -n kube-system 
+
+ by default k8s assaign default service account with default policy
+
+
+47. Kubernetes Deployment - [Scaling and Healing]:
+----------------------------------------------------
+
+Deployment resource:
+-------------------
+Solving problem of:
+  Scaling -----
+  Healing -----
+
+Replica sets: 
+  created by Deployment resource 
+
+Service: 
+--------
+  solves problem of service discovery 
+
+  frontend  ---> service (provide labels)---> backend
+
+
+Kubernetes yaml : Deployment resource
+=====================================
+
+ apiversion: V1
+ kind: Deployment
+ metadata:
+   name:
+   labels:
+
+ Spec:
+  type: 
+  ports:
+ 
+
+
+
+ Kubernetes yaml : Service resource
+ ==================================
+
+ apiversion: V1
+ kind: service 
+ metadata:
+   name:
+   labels:
+
+ Spec:
+  type: clusetrIP/node port/load balancer
+  ports:                                    
+    - ports: 8080         # not a container port. it is  FQDN:port   - fully qualified domain name 
+      targetport: 8080    # service pod port 
+
+  selector: 
