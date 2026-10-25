@@ -108,6 +108,18 @@ terraform force-unlock #id (af679cae-0564-5940-0f5d-07cd9bb21ab3)
   terraform plan -refresh-only      # shows drift without proposing changes
   terraform plan                    # should say "No changes" right after apply
 
+Troubleshoot:
+---------------
+sh check.sh 
+  terraform import aws_s3_bucket.my_bucket terraform-eks-bucket-state
+  terraform import aws_dynamodb_table.terraform_locks terraform-locks
+  terraform plan
+  
+  aws s3 ls s3://terraform-eks-bucket-state --recursive
+  terraform state list
+  
+  aws s3 rb s3://terraform-eks-bucket-state --force --region ap-south-1  #force delete 
+
 
 
 44. How to connect to 1 or many Kubernetes clusters from command line ?

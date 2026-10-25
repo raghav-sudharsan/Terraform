@@ -79,32 +79,73 @@ Service:
 Kubernetes yaml : Deployment resource
 =====================================
 
- apiversion: V1
- kind: Deployment
+ apiVersion: V1
+ kind: Deployment   #name of the deployment
  metadata:
    name:
-   labels:
+   labels:          #related to project and service information  - not important for service discovery 
+     app.kubernetes.io/team-name: ad-service       #for reperesent the reservice/organizatoin 
 
- Spec:
-  type: 
-  ports:
- 
+ spec:
+   replicas:         #manditay fields- Replica sets
+   template:        # pod related configuration 
+     metadata:  
+       label:        #service discovery 
+         app.kubernets.io/name:ad-service    #service name 
+         app.kubernets.io/name:team-name
+
+     spec:
+      serviceaccountnamr: 
+      containers:
+        - name: adservice
+          image:              #image name from registry
+          ports:
+          env:
+          volume:
 
 
 
  Kubernetes yaml : Service resource
  ==================================
 
- apiversion: V1
+ apiVersion: V1
  kind: service 
  metadata:
-   name:
+   name:     
    labels:
-
- Spec:
-  type: clusetrIP/node port/load balancer
+      
+ spec:
+  type: clusetrIP/node port/load balancer              #internal and external network configuration 
   ports:                                    
-    - ports: 8080         # not a container port. it is  FQDN:port   - fully qualified domain name 
+    - port: 8080         # not a container port. it is  FQDN:port   - fully qualified domain name 
       targetport: 8080    # service pod port 
 
-  selector: 
+  selector:   #label- name of current pod name 
+
+
+51. Deploying the project on Kubernetes - PART 3:
+================================================
+  kubectl config current-context
+  kubectl get all 
+
+  kubectl apply -f serviceaccount.yaml
+  kubectl get sa 
+
+  kubectl apply -f complete-deploy.yml   #deploy all microservice at once
+  kubectl get pods
+  kubectl get svc | grep frontendproxy 
+    
+
+service type:
+=============
+  services:  #can configure by 
+    - clusetrIP    # only allows with in cluster configuration between the node in VPC 
+    - Node port    # allows access within the VPC 
+    - LB           # API  ---> CCM (generate FQDN) ---> AWS ---> LB ---> assign public IP
+               ##CCM - Cloud control manager  
+
+53. Accessing the project using Kubernetes LB service type:
+===========================================================
+
+  kubectl edit svc opentelemetry-demo-frontendproxy
+  kubectl get svc opentelemetry-demo-frontendproxy
